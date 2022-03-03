@@ -1,17 +1,20 @@
 <?php
 
-namespace app\Controllers\Pages;
+namespace App\Controllers\Pages;
 
 use App\Utils\View;
+use App\Controllers\Pages\PageController;
 
-class HomeController
+class HomeController extends PageController
 {
 
     public static function getHome()
     {
-        return View::render('home', [
+        $content =  View::render('home', [
             "name" => "Estrutura MVC com php",
             "description" =>  "Uma estrutura MVC com php puro do zero"
         ]);
+
+        return parent::getPage("MVC com php", $content);
     }
 }
